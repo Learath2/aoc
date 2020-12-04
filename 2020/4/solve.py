@@ -25,13 +25,13 @@ def is_valid(p: Passport) -> bool:
     # Part 1
     # return True
 
-    if not 1920 <= int(p['byr']) <= 2002:
+    if p['byr'].isnumeric() and not 1920 <= int(p['byr']) <= 2002:
         return False
 
-    if not 2010 <= int(p['iyr']) <= 2020:
+    if p['iyr'].isnumeric() and not 2010 <= int(p['iyr']) <= 2020:
         return False
 
-    if not 2020 <= int(p['eyr']) <= 2030:
+    if p['eyr'].isnumeric() and not 2020 <= int(p['eyr']) <= 2030:
         return False
 
     if not (m := re.match(r"^(\d{2,3})(in|cm)$", p['hgt'])):
