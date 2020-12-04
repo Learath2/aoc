@@ -44,13 +44,13 @@ def is_valid(p: Passport) -> bool:
     elif hgt_u == "cm" and not 150 <= hgt <= 193:
         return False
 
-    if not (m := re.match(r"^#[0-9a-f]{6}$", p['hcl'])):
+    if not re.match(r"^#[0-9a-f]{6}$", p['hcl']):
         return False
 
     if not p['ecl'] in ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"]:
         return False
 
-    if not (m := re.match(r"^\d{9}$", p['pid'])):
+    if not re.match(r"^\d{9}$", p['pid']):
         return False
 
     return True
